@@ -1,0 +1,44 @@
+﻿@using PhongKham.Core.Entities
+@model Appointment
+<form id="create-form" method="post" asp-page="/Manager/Appointment" asp-route-id="@Model.Id" asp-page-handler="CreateOrEdit" onsubmit="return jQueryModalPost(this);">
+    <div class="form-group row">
+        <label class="col-md-3 col-form-label">Appointment Note</label>
+        <div class="col-md-9">
+            <input type="text" autocomplete="off" asp-for="appNote" name="appNote" class="form-control">
+            <span asp-validation-for="appNote" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-3 col-form-label">App Date</label>
+        <div class="col-md-9">
+            <input type="datetime-local" autocomplete="off" asp-for="appDate" name="appDate" class="form-control">
+            <span asp-validation-for="appDate" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-3 col-form-label">App Type</label>
+        <div class="col-md-9">
+            <select asp-for="appType" name="appType" class="form-control">
+                <option value="">-- Select --</option>
+                <!-- Add options for the enum values here -->
+                <option value="TiemPhong">Tiêm Phòng</option>
+                <option value="ChuanDoan">Chuẩn Đoán</option>
+                <option value="XetNghiem">Xét Nghiệm</option>
+                <option value="TuVan">Tư Vấn</option>
+            </select>
+            <span asp-validation-for="appType" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-3">
+        </div>
+    </div>
+    <div class="form-group justify-content-between">
+        <button type="button" class="btn btn-secondary close-button" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary save-button">Save</button>
+    </div>
+
+</form>
+<script type="text/javascript" language=javascript>
+    $.validator.unobtrusive.parse(document);
+</script>

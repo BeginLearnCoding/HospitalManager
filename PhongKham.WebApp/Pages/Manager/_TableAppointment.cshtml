@@ -1,0 +1,72 @@
+﻿@using PhongKham.Core.Entities
+@model IEnumerable<Appointment>
+
+
+
+<!-- Basic Bootstrap Table -->
+<div class="card">
+    <h5 class="card-header">Appointment List</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table" id="appointmentTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Date</th>
+                    <th>Note</th>
+                    <th>Type</th>
+                    <th>Doctor</th>
+                    <th>Patient</th>
+                    <th>Invoice</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @if (Model.Count() != 0)
+                {
+
+
+                    @foreach (var appointment in Model)
+                    {
+                        <tr>
+                            <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@appointment.Id</strong></td>
+                            <td>@appointment.appDate.ToString("MM/dd/yyyy")</td>
+                            <td> @appointment.appNote</td>
+                            <td>@appointment.appType.ToString()</td>
+                            <td>Doctor Name</td>
+                            <td>Patient Name</td>
+                            @if (appointment.Invoice != null)
+                            {
+                                <td>@appointment.Invoice.InDatetime</td>
+                            }
+                            else
+                            {
+                                <td>No Invoices</td>
+                            }
+
+                            <td>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" onclick="jQueryModalGet('?handler=CreateOrEdit&id=@appointment.Id','Edit Appointment')">
+                                            <i class="bx bx-edit-alt me-1"></i>
+                                            Edit
+                                        </a>
+                                        <form class="dropdown-item d-inline" method="post" asp-page="Appointment" asp-route-id="@appointment.Id" asp-page-handler="Delete" onsubmit="return jQueryModalDelete(this)">
+                                            <button type="submit">
+                                                <i class="bx bx-trash me-1"></i> Delete 
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<!--/ Basic Bootstrap Table -->

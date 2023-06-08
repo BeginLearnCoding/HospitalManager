@@ -1,0 +1,12 @@
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\bin\Debug\net5.0\PhongKham.Domain.deps.json
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\bin\Debug\net5.0\PhongKham.Domain.dll
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\bin\Debug\net5.0\ref\PhongKham.Domain.dll
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\bin\Debug\net5.0\PhongKham.Domain.pdb
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\obj\Debug\net5.0\PhongKham.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\obj\Debug\net5.0\PhongKham.Domain.AssemblyInfoInputs.cache
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\obj\Debug\net5.0\PhongKham.Domain.AssemblyInfo.cs
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\obj\Debug\net5.0\PhongKham.Domain.csproj.CoreCompileInputs.cache
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\obj\Debug\net5.0\PhongKham.Domain.dll
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\obj\Debug\net5.0\ref\PhongKham.Domain.dll
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\obj\Debug\net5.0\PhongKham.Domain.pdb
+C:\XT-1\CNPM\CNPM_PhongKham\PhongKham.Domain\obj\Debug\net5.0\PhongKham.Domain.csproj.AssemblyReference.cache
