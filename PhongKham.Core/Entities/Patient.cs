@@ -18,6 +18,8 @@ namespace PhongKham.Core.Entities
         //List of appointment
         public ICollection<Appointment> Appointments { get; set; }
         //list of payment
-        public ICollection<Payment> Payments { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
+
+
     }
 }

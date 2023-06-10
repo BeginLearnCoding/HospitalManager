@@ -12,6 +12,7 @@ namespace PhongKham.Core.Entities
         public int Id { get; set; }
         public string medName { get; set; }
         public DateTime medOutdate { get; set; }
+        public int medInStock { get; set; }
         public double medPrice { get; set; }
         public int SpecializeId { get; set; }
         public Specialize Specialize { get; set; }

@@ -2,7 +2,7 @@
 @model PhongKham.WebApp.Pages.Manager.AppointmentModel
 @{
 }
-
+<div class="class=" container-xxl flex-grow-1 container-p-y">
     <div class="col-sm-12" style="padding:20px">
         <a onclick="jQueryModalGet('?handler=CreateOrEdit','Create Appointment')" class="btn bg-success">
             Create
@@ -11,8 +11,8 @@
             Reload
         </a>
     </div>
-    <div id="viewAll" class="container-xxl flex-grow-1 container-p-y"> </div>
-
+    <div id="viewAll"> </div>
+</div>
 @section Scripts
 {
     <script>

@@ -13,10 +13,16 @@ namespace PhongKham.Core.Entities
         public int Id { get; set; }
         public string InNote { get; set; }
         public DateTime InDatetime { get; set; }
-        public Payment Payment { get; set; }
+        public double InvoiceTotal { get; set; }
         public int? AppointmentId { get; set; }
         public Appointment Appointment { get; set; }
         public ICollection<Medicine> Medicines { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
+        public Patient Patient { get; set; }
 
+    }
+    public enum PaymentMethod
+    {
+        cash = 1, banktransfer = 2
     }
 }

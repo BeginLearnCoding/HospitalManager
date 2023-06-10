@@ -82,9 +82,6 @@ namespace PhongKham.WebApp
             //Appointment
             services.AddTransient<IAppointmentRepository, AppointmentRepositoryAsync>();
             services.AddTransient<AppointmentService>();
-            //Invoice
-            services.AddTransient<IInvoiceRepository, InvoiceRepositoryAsync>();
-            services.AddTransient<InvoiceService>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
         public void ConfigureDatabases(IServiceCollection services)

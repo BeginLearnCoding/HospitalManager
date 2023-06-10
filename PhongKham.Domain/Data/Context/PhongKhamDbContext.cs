@@ -10,14 +10,15 @@ namespace PhongKham.Infrastructure.Data.Context
         {
 
         }
-
+        
         public DbSet<Doctor> Doctors { get; set; }
         public DbSet<Patient> Patients { get; set; }
-        public DbSet<Invoice> Invoices { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Specialize> Specializes { get; set; }
         public DbSet<Medicine> Medicines { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        //public DbSet<Payment> Payments { get; set; }
+
   
 
 

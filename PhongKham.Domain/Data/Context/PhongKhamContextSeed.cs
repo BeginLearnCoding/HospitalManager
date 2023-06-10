@@ -15,12 +15,13 @@ namespace PhongKham.Infrastructure.Data.Context
             /*
             await SeedPatientAsync(phongKhamDbContext);
             await SeedDoctorAsync(phongKhamDbContext);
+            await SeedPaymentAsync(phongKhamDbContext);
             */
             await SeedMedicineAsync(phongKhamDbContext);
             await SeedSpecializeAsync(phongKhamDbContext);
             await SeedAppointmentAsync(phongKhamDbContext);
             await SeedInvoiceAsync(phongKhamDbContext);
-            await SeedPaymentAsync(phongKhamDbContext);
+   
 
 
         }
@@ -113,7 +114,7 @@ namespace PhongKham.Infrastructure.Data.Context
             await phongKhamDbContext.Invoices.AddRangeAsync(invoices);
             await phongKhamDbContext.SaveChangesAsync();
         }
-
+        /*
         private static async Task SeedPaymentAsync(PhongKhamDbContext phongKhamDbContext)
         {
             if (phongKhamDbContext.Payments.Any())
@@ -136,7 +137,7 @@ namespace PhongKham.Infrastructure.Data.Context
             await phongKhamDbContext.Payments.AddRangeAsync(payments);
             await phongKhamDbContext.SaveChangesAsync();
         }
-
+        */
         private static async Task SeedAppointmentAsync(PhongKhamDbContext phongKhamDbContext)
         {
             if (phongKhamDbContext.Appointments.Any())
@@ -156,7 +157,7 @@ namespace PhongKham.Infrastructure.Data.Context
             await phongKhamDbContext.Appointments.AddRangeAsync(appointments);
             await phongKhamDbContext.SaveChangesAsync();
         }
-
+        
         private static Task SeedDoctorAsync(PhongKhamDbContext phongKhamDbContext)
         {
             throw new NotImplementedException();

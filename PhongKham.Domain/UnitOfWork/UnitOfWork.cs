@@ -12,11 +12,11 @@ namespace PhongKham.Infrastructure.UnitOfWork
         {
             _context = context;
             Appointments = new AppointmentRepositoryAsync(_context);
-            Invoices = new InvoiceRepositoryAsync(_context);
+
      
         }
         public IAppointmentRepository Appointments { get; private set; }
-        public InvoiceRepositoryAsync Invoices { get; }
+
 
         public async Task<int> CompleteAsync()
         {
