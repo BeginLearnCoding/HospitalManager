@@ -9,6 +9,8 @@ namespace PhongKham.Core.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         IAppointmentRepository Appointments { get; }
+        IMedicineRepository Medicines { get; }
+        IInvoiceRepository Invoices { get; }
         Task<int> CompleteAsync();
        // Task<int> Commit();
     }

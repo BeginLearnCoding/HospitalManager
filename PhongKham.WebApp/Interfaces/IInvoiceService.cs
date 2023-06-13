@@ -8,10 +8,11 @@ namespace PhongKham.WebApp.Interfaces
 {
     public interface IInvoiceService
     {
-        Task<IEnumerable<Invoice>> GetInvoiceListAsync();
+        Task<IEnumerable<Invoice>> GetInvoicesListAsync();
         Task<Invoice> GetInvoiceById(int id);
         Task<Invoice> AddInvoiceAsync(Invoice invoice);
         Task<Invoice> UpdateInvoice(Invoice invoice);
         Task<Invoice> DeleteInvoice(Invoice invoice);
+        Task<List<Medicine>> GetMedicinesListAsync();
     }
 }

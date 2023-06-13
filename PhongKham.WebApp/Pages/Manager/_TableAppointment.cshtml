@@ -53,6 +53,7 @@
                                             <i class="bx bx-edit-alt me-1"></i>
                                             Edit
                                         </a>
+                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#createInvoiceModal" data-appointmentid="@appointment.Id">Create Invoice</a>
                                         <form class="dropdown-item d-inline" method="post" asp-page="Appointment" asp-route-id="@appointment.Id" asp-page-handler="Delete" onsubmit="return jQueryModalDelete(this)">
                                             <button type="submit">
                                                 <i class="bx bx-trash me-1"></i> Delete 
@@ -70,3 +71,11 @@
     </div>
 </div>
 <!--/ Basic Bootstrap Table -->
+<script>
+    $('#createInvoiceModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var appointmentId = button.data('appointmentid');
+        var modal = $(this);
+        modal.find('#AppointmentId').val(appointmentId);
+    });
+</script>

@@ -41,6 +41,18 @@ namespace PhongKham.Infrastructure.Data.Context
             var invoice = builder.Entity<Invoice>();
             invoice.HasKey(x => x.Id);
             invoice.HasOne(x => x.Appointment).WithOne(x => x.Invoice).HasForeignKey<Invoice>(fk => fk.AppointmentId);
+            builder.Entity<InvoiceMedicine>()
+          .HasKey(im => new { im.InvoiceId, im.MedicineId });
+
+            builder.Entity<InvoiceMedicine>()
+                .HasOne(im => im.Invoice)
+                .WithMany(i => i.InvoiceMedicines)
+                .HasForeignKey(im => im.InvoiceId);
+
+            builder.Entity<InvoiceMedicine>()
+                .HasOne(im => im.Medicine)
+                .WithMany(m => m.InvoiceMedicines)
+                .HasForeignKey(im => im.MedicineId);
         }
 
     }

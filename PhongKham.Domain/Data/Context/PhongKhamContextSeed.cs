@@ -20,7 +20,7 @@ namespace PhongKham.Infrastructure.Data.Context
             await SeedMedicineAsync(phongKhamDbContext);
             await SeedSpecializeAsync(phongKhamDbContext);
             await SeedAppointmentAsync(phongKhamDbContext);
-            await SeedInvoiceAsync(phongKhamDbContext);
+            //await SeedInvoiceAsync(phongKhamDbContext);
    
 
 
@@ -83,7 +83,7 @@ namespace PhongKham.Infrastructure.Data.Context
             await phongKhamDbContext.Medicines.AddRangeAsync(medicines);
             await phongKhamDbContext.SaveChangesAsync();
         }
-
+        /*
         private static async Task SeedInvoiceAsync(PhongKhamDbContext phongKhamDbContext)
         {
             if (phongKhamDbContext.Invoices.Any())
@@ -113,7 +113,7 @@ namespace PhongKham.Infrastructure.Data.Context
             // Add data to the database
             await phongKhamDbContext.Invoices.AddRangeAsync(invoices);
             await phongKhamDbContext.SaveChangesAsync();
-        }
+        }*/
         /*
         private static async Task SeedPaymentAsync(PhongKhamDbContext phongKhamDbContext)
         {

@@ -95,6 +95,9 @@ namespace PhongKham.Infrastructure.Migrations
                     b.Property<int>("PaymentMethod")
                         .HasColumnType("int");
 
+                    b.Property<int>("PaymentStatus")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppointmentId")
@@ -106,15 +109,27 @@ namespace PhongKham.Infrastructure.Migrations
                     b.ToTable("Invoices");
                 });
 
+            modelBuilder.Entity("PhongKham.Core.Entities.InvoiceMedicine", b =>
+                {
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MedicineId")
+                        .HasColumnType("int");
+
+                    b.HasKey("InvoiceId", "MedicineId");
+
+                    b.HasIndex("MedicineId");
+
+                    b.ToTable("InvoiceMedicine");
+                });
+
             modelBuilder.Entity("PhongKham.Core.Entities.Medicine", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("InvoiceId")
-                        .HasColumnType("int");
 
                     b.Property<int>("SpecializeId")
                         .HasColumnType("int");
@@ -132,8 +147,6 @@ namespace PhongKham.Infrastructure.Migrations
                         .HasColumnType("float");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("InvoiceId");
 
                     b.HasIndex("SpecializeId");
 
@@ -220,12 +233,27 @@ namespace PhongKham.Infrastructure.Migrations
                     b.Navigation("Patient");
                 });
 
+            modelBuilder.Entity("PhongKham.Core.Entities.InvoiceMedicine", b =>
+                {
+                    b.HasOne("PhongKham.Core.Entities.Invoice", "Invoice")
+                        .WithMany("InvoiceMedicines")
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("PhongKham.Core.Entities.Medicine", "Medicine")
+                        .WithMany("InvoiceMedicines")
+                        .HasForeignKey("MedicineId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Invoice");
+
+                    b.Navigation("Medicine");
+                });
+
             modelBuilder.Entity("PhongKham.Core.Entities.Medicine", b =>
                 {
-                    b.HasOne("PhongKham.Core.Entities.Invoice", null)
-                        .WithMany("Medicines")
-                        .HasForeignKey("InvoiceId");
-
                     b.HasOne("PhongKham.Core.Entities.Specialize", "Specialize")
                         .WithMany("Medicines")
                         .HasForeignKey("SpecializeId")
@@ -247,7 +275,12 @@ namespace PhongKham.Infrastructure.Migrations
 
             modelBuilder.Entity("PhongKham.Core.Entities.Invoice", b =>
                 {
-                    b.Navigation("Medicines");
+                    b.Navigation("InvoiceMedicines");
+                });
+
+            modelBuilder.Entity("PhongKham.Core.Entities.Medicine", b =>
+                {
+                    b.Navigation("InvoiceMedicines");
                 });
 
             modelBuilder.Entity("PhongKham.Core.Entities.Patient", b =>
